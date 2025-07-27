@@ -41,7 +41,6 @@ try {
     $trade_timestamp = $form_data['trade_timestamp'];
     $reason = sanitize($form_data['reason'] ?? '');
     $emotional_notes = sanitize($form_data['emotional_notes'] ?? '');
-    $drawing_data = $form_data['drawing_data'] ?? '';
     
     // Price fields (only for taken trades)
     $entry_price = null;
@@ -68,18 +67,18 @@ try {
         INSERT INTO trades (
             strategy_id, taken, missed_reason, direction, session, bias,
             trade_timestamp, entry_price, stop_loss_price, exit_price,
-            risk_percent, r_multiple, reason, emotional_notes, drawing_data
+            risk_percent, r_multiple, reason, emotional_notes
         ) VALUES (
             ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?,
-            ?, ?, ?, ?, ?
+            ?, ?, ?, ?
         )
     ");
     
     $stmt->execute([
         $strategy_id, $taken, $missed_reason, $direction, $session, $bias,
         $trade_timestamp, $entry_price, $stop_loss_price, $exit_price,
-        $risk_percent, $r_multiple, $reason, $emotional_notes, $drawing_data
+        $risk_percent, $r_multiple, $reason, $emotional_notes
     ]);
     
     $trade_id = $db->lastInsertId();

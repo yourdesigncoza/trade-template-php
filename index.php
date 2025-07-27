@@ -258,26 +258,12 @@ include 'templates/header.php';
                 <div class="bg-white shadow rounded-lg p-6">
                     <h2 class="text-lg font-medium text-gray-900 mb-4">Notes / Emotions (Optional)</h2>
                     
-                    <!-- Drawing Canvas -->
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Drawing Area
-                        </label>
-                        <div class="relative">
-                            <canvas id="drawingCanvas" width="600" height="200" class="w-full bg-white rounded-lg"></canvas>
-                            <button type="button" id="clearCanvas" class="absolute top-2 right-2 px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded">
-                                Clear
-                            </button>
-                        </div>
-                        <input type="hidden" name="drawing_data" id="drawing_data">
-                    </div>
-                    
                     <!-- Text Notes -->
                     <div>
                         <label for="emotional_notes" class="block text-sm font-medium text-gray-700 mb-2">
                             Emotional Notes
                         </label>
-                        <textarea name="emotional_notes" id="emotional_notes" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"><?php echo isset($form_data['emotional_notes']) ? htmlspecialchars($form_data['emotional_notes']) : ''; ?></textarea>
+                        <textarea name="emotional_notes" id="emotional_notes" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="How did you feel about this trade? Any emotional insights or thoughts..."><?php echo isset($form_data['emotional_notes']) ? htmlspecialchars($form_data['emotional_notes']) : ''; ?></textarea>
                     </div>
                 </div>
                 
@@ -294,7 +280,6 @@ include 'templates/header.php';
 
 <!-- JavaScript for form interactions -->
 <script src="assets/js/trade-form.js"></script>
-<script src="assets/js/canvas.js"></script>
 
 <?php
 $extra_scripts = '<script>
@@ -302,9 +287,6 @@ $extra_scripts = '<script>
 document.addEventListener("DOMContentLoaded", function() {
     if (window.initializeTradeForm) {
         initializeTradeForm();
-    }
-    if (window.initializeCanvas) {
-        initializeCanvas();
     }
 });
 </script>';

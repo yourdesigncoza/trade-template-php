@@ -80,7 +80,6 @@ CREATE TABLE trades (
   r_multiple DECIMAL(5,2),
   reason TEXT,
   emotional_notes TEXT,
-  drawing_data TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (strategy_id) REFERENCES strategies(id),

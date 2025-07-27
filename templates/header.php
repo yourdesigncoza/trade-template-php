@@ -16,13 +16,6 @@
             height: 20px;
             cursor: pointer;
         }
-        
-        /* Canvas styles */
-        #drawingCanvas {
-            border: 2px solid #e5e7eb;
-            cursor: crosshair;
-            touch-action: none;
-        }
     </style>
     
     <?php if (isset($extra_head)) echo $extra_head; ?>
