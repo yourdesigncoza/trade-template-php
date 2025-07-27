@@ -1,0 +1,24 @@
+## settings.local.json
+{
+  "environment": {
+    "WORKSPACE": "/opt/lampp/htdocs/wecoza/wp-content/plugins/wecoza-classes-plugin"
+  },
+  "experimentalTools": {
+    "notify": {
+      "commandAfterRun": "bash /opt/lampp/htdocs/wecoza/wp-content/plugins/wecoza-classes-plugin/.claude/hooks/notify.sh",
+      "commandAfterUserInput": "bash /opt/lampp/htdocs/wecoza/wp-content/plugins/wecoza-classes-plugin/.claude/hooks/notify.sh input"
+    }
+  },
+  "experimentalHooks": {
+    "preToolUse": "bash /opt/lampp/htdocs/wecoza/wp-content/plugins/wecoza-classes-plugin/.claude/hooks/mcp-security-scan.sh",
+    "preToolUse_gemini": "bash /opt/lampp/htdocs/wecoza/wp-content/plugins/wecoza-classes-plugin/.claude/hooks/gemini-context-injector.sh",
+    "preToolUse_task": "bash /opt/lampp/htdocs/wecoza/wp-content/plugins/wecoza-classes-plugin/.claude/hooks/subagent-context-injector.sh"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  }
+}
